@@ -1,0 +1,74 @@
+﻿@using bloodyvalentinee.Models.Data;
+@model bloodyvalentinee.Models.Data.Usuario;
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Entrar</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" href="~/Pagestyle/Login/assets/css/style.css">
+
+</head>
+<body>
+	<form asp-controller="Acceso" asp-action="Index" method="post">
+
+		<section class="ftco-section">
+			<div class="container">
+
+				<div class="row justify-content-center">
+					<div class="col-md-12 col-lg-10">
+						<div class="wrap d-md-flex">
+							<div class="img" style="background-image: url(Pagestyle/Login/assets/images/pexels-karolina-grabowska-4386467.jpg);">
+							</div>
+							<div class="login-wrap p-4 p-md-5">
+								<div class="d-flex">
+									<div class="w-100">
+										<h3 class="mb-4">Inicia sesión</h3>
+									</div>
+								</div>
+								<form action="#" class="signin-form">
+									<div class="form-group mb-3">
+										<label class="label" for="name">Nombre de usuario</label>
+										<input type="email" class="form-control" asp-for="Email" placeholder="pepito123" required>
+									</div>
+									<div class="form-group mb-3">
+										<label class="label" for="password">Contraseña</label>
+										<input type="password" class="form-control" asp-for="Contraseña" placeholder="Contraseña" required>
+									</div>
+									<div class="form-group">
+										<button type="submit" class="form-control btn btn-primary rounded submit px-3">Entrar</button>
+									</div>
+									<div class="form-group d-md-flex">
+										<div class="w-50 text-left">
+											<label class="checkbox-wrap checkbox-primary mb-0">
+												Recuerdame
+												<input type="checkbox" checked>
+												<span class="checkmark"></span>
+											</label>
+										</div>
+									</div>
+								</form>
+								<p class="text-center">IPS El Buen Samaritano</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</form>
+	<script src="~/Pagestyle/Login/assets/js/jquery.min.js"></script>
+	<script src="~/Pagestyle/Login/assets/js/popper.js"></script>
+	<script src="~/Pagestyle/Login/assets/js/bootstrap.min.js"></script>
+	<script src="~/Pagestyle/Login/assets/js/main.js"></script>
+
+</body>
+</html>

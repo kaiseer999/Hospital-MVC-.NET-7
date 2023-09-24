@@ -1,0 +1,97 @@
+﻿@model IEnumerable<bloodyvalentinee.Models.Data.InsGeneral>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComentarioMc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Altura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PesoReal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PesoIdeal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Temperatura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FrecuenciaCardiaca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FrecuenciaRespiratoria)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComentarioIg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComentarioD)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario.idUsuario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComentarioMc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Altura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PesoReal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PesoIdeal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temperatura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrecuenciaCardiaca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrecuenciaRespiratoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComentarioIg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComentarioD)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdIgeneral">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdIgeneral">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdIgeneral">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

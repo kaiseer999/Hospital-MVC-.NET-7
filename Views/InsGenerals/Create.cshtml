@@ -1,0 +1,83 @@
+﻿@model bloodyvalentinee.Models.Data.InsGeneral
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>InsGeneral</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdUsuario" class="control-label"></label>
+                <select asp-for="IdUsuario" class ="form-control" asp-items="ViewBag.IdUsuario"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComentarioMc" class="control-label"></label>
+                <textarea asp-for="ComentarioMc" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="ComentarioMc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Altura" class="control-label"></label>
+                <input asp-for="Altura" class="form-control" />
+                <span asp-validation-for="Altura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PesoReal" class="control-label"></label>
+                <input asp-for="PesoReal" class="form-control" />
+                <span asp-validation-for="PesoReal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PesoIdeal" class="control-label"></label>
+                <input asp-for="PesoIdeal" class="form-control" />
+                <span asp-validation-for="PesoIdeal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imc" class="control-label"></label>
+                <input asp-for="Imc" class="form-control" />
+                <span asp-validation-for="Imc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Temperatura" class="control-label"></label>
+                <input asp-for="Temperatura" class="form-control" />
+                <span asp-validation-for="Temperatura" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FrecuenciaCardiaca" class="control-label"></label>
+                <input asp-for="FrecuenciaCardiaca" class="form-control" />
+                <span asp-validation-for="FrecuenciaCardiaca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FrecuenciaRespiratoria" class="control-label"></label>
+                <input asp-for="FrecuenciaRespiratoria" class="form-control" />
+                <span asp-validation-for="FrecuenciaRespiratoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComentarioIg" class="control-label"></label>
+                <input asp-for="ComentarioIg" class="form-control" />
+                <span asp-validation-for="ComentarioIg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComentarioD" class="control-label"></label>
+                <input asp-for="ComentarioD" class="form-control" />
+                <span asp-validation-for="ComentarioD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
