@@ -1,0 +1,43 @@
+﻿@model bloodyvalentinee.Models.Data.HistoriaClinica
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Inoformacion</h1>
+
+<div>
+    <h4>HistoriaClinica</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Usuario.idUsuario)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdMedico)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdMedico)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.InsGeneral)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.InsGeneral.IdIgeneral)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EnfermedadHereditaria)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EnfermedadHereditaria.IdEh)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdHcu">Editar</a> |
+    <a asp-action="Index">Volver</a>
+</div>

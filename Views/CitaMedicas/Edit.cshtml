@@ -1,0 +1,98 @@
+﻿@model bloodyvalentinee.Models.Data.CitaMedica
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar cita medica</h1>
+
+<h4>CitaMedica</h4>
+<hr />
+
+  
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdCitaMedica" />
+    <div class="form-row align-items-center">
+
+
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">Agendar Cita</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="card-body">
+                <div id="divNombreDimension_1" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color: #a3dff0;color: #FFFFFF;border-color:#FFFFFF">
+                    <b>Cita medica</b>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+
+                            <label asp-for="IdMedico" class="control-label">Id Medico </label>
+                            <select asp-for="IdMedico" class="form-control" asp-items="ViewBag.IdMedico" required></select>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="IdUsuario" class="control-label">Usuario</label>
+                            <select asp-for="IdUsuario" class="form-control" asp-items="ViewBag.IdUsuario" required></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Consultorio" class="control-label">Consultorio</label>
+                            <input asp-for="Consultorio" class="form-control" name="Consultorio" id="Consultorio" minlength="3" required />
+                            <span asp-validation-for="Consultorio" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="FechaCita" class="control-label">Fecha de la cita</label>
+                            <input asp-for="FechaCita" class="form-control" name="FechaCita" id="FechaCita" minlength="3" required />
+                            <span asp-validation-for="FechaCita" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Motivo" class="control-label">Motivo</label>
+                            <textarea asp-for="Motivo" class="form-control" name="Motivo" id="Motivo" minlength="3" required></textarea>
+                            <span asp-validation-for="Motivo" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Estado" class="control-label">Estado</label>
+                            <input asp-for="Estado" class="form-control" name="Estado" id="Estado" minlength="3" required />
+                            <span asp-validation-for="Estado" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <div class="d-inline">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+                <div class="d-inline">
+                    <a asp-action="Index" class="btn btn-danger" role="button">Volver atrás</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        </form>
+ 
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

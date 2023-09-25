@@ -52,8 +52,8 @@ namespace bloodyvalentinee.Controllers
         // GET: Usuarios/Create
         public IActionResult Create()
         {
-            ViewData["EPSIdEps"] = new SelectList(_context.EPS, "IdEps", "IdEps");
-            ViewData["RolId"] = new SelectList(_context.Rol, "IdRol", "IdRol");
+            ViewData["EPSIdEps"] = new SelectList(_context.EPS, "IdEps", "NombreEps");
+            ViewData["RolId"] = new SelectList(_context.Rol, "IdRol", "Nombre");
             return View();
         }
 
@@ -69,8 +69,8 @@ namespace bloodyvalentinee.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             
-            ViewData["EPSIdEps"] = new SelectList(_context.EPS, "IdEps", "IdEps", usuario.EPSIdEps);
-            ViewData["RolId"] = new SelectList(_context.Rol, "IdRol", "IdRol", usuario.RolId);
+            ViewData["EPSIdEps"] = new SelectList(_context.EPS, "IdEps", "NombreEps", usuario.EPSIdEps);
+            ViewData["RolId"] = new SelectList(_context.Rol, "IdRol", "Nombre", usuario.RolId);
             return View(usuario);
         }
 
@@ -89,8 +89,8 @@ namespace bloodyvalentinee.Controllers
             {
                 return NotFound();
             }
-            ViewData["EPSIdEps"] = new SelectList(_context.EPS, "IdEps", "IdEps", usuario.EPSIdEps);
-            ViewData["RolId"] = new SelectList(_context.Rol, "IdRol", "IdRol", usuario.RolId);
+            ViewData["EPSIdEps"] = new SelectList(_context.EPS, "IdEps", "NombreEps", usuario.EPSIdEps);
+            ViewData["RolId"] = new SelectList(_context.Rol, "IdRol", "Nombre", usuario.RolId);
             return View(usuario);
         }
 
@@ -108,8 +108,7 @@ namespace bloodyvalentinee.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+          
                 try
                 {
                     _context.Update(usuario);
@@ -127,9 +126,9 @@ namespace bloodyvalentinee.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["EPSIdEps"] = new SelectList(_context.EPS, "IdEps", "IdEps", usuario.EPSIdEps);
-            ViewData["RolId"] = new SelectList(_context.Rol, "IdRol", "IdRol", usuario.RolId);
+            
+            ViewData["EPSIdEps"] = new SelectList(_context.EPS, "IdEps", "NombreEps", usuario.EPSIdEps);
+            ViewData["RolId"] = new SelectList(_context.Rol, "IdRol", "Nombre", usuario.RolId);
             return View(usuario);
         }
 

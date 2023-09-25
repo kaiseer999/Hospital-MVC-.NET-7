@@ -1,0 +1,42 @@
+﻿@model IEnumerable<bloodyvalentinee.Models.Data.Medico>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Medicos</h1>
+
+<p>
+    <a asp-action="Create">Agregar un nuevo medico</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Especialidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Especialidad)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.NombreCompleto)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdMedico">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdMedico">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMedico">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

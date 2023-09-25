@@ -8,13 +8,14 @@ namespace bloodyvalentinee.Models.Data
         public int IdHcu { get; set; }
 
         public int IdUsuario { get; set; } 
-        public Usuario Usuario { get; set; } 
+        public Usuario Usuario { get; set; }
+        public int IdMedico { get; set; }
+        public Medico Medico { get; set; }
 
 
 
-       
 
-      
+
 
         public int IdIgeneral { get; set; } 
         public InsGeneral InsGeneral { get; set; } 

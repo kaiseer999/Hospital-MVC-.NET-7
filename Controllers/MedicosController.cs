@@ -12,104 +12,104 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace bloodyvalentinee.Controllers
 {
-    [Authorize(Roles = "2")]
+    [Authorize(Roles = "1")]
 
-    public class InsGeneralsController : Controller
+    public class MedicosController : Controller
     {
         private readonly AplicacionDBContext _context;
 
-        public InsGeneralsController(AplicacionDBContext context)
+        public MedicosController(AplicacionDBContext context)
         {
             _context = context;
         }
 
-        // GET: InsGenerals
+        // GET: Medicos
         public async Task<IActionResult> Index()
         {
-            var aplicacionDBContext = _context.InsGeneral.Include(i => i.Usuario);
+            var aplicacionDBContext = _context.Medico.Include(m => m.Usuario);
             return View(await aplicacionDBContext.ToListAsync());
         }
 
-        // GET: InsGenerals/Details/5
+        // GET: Medicos/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.InsGeneral == null)
+            if (id == null || _context.Medico == null)
             {
                 return NotFound();
             }
 
-            var insGeneral = await _context.InsGeneral
-                .Include(i => i.Usuario)
-                .FirstOrDefaultAsync(m => m.IdIgeneral == id);
-            if (insGeneral == null)
+            var medico = await _context.Medico
+                .Include(m => m.Usuario)
+                .FirstOrDefaultAsync(m => m.IdMedico == id);
+            if (medico == null)
             {
                 return NotFound();
             }
 
-            return View(insGeneral);
+            return View(medico);
         }
 
-        // GET: InsGenerals/Create
+        // GET: Medicos/Create
         public IActionResult Create()
         {
             ViewData["IdUsuario"] = new SelectList(_context.Usuario, "idUsuario", "NombreCompleto");
             return View();
         }
 
-        // POST: InsGenerals/Create
+        // POST: Medicos/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdIgeneral,IdUsuario,ComentarioMc,Altura,PesoReal,PesoIdeal,Imc,Temperatura,FrecuenciaCardiaca,FrecuenciaRespiratoria,ComentarioIg,ComentarioD")] InsGeneral insGeneral)
+        public async Task<IActionResult> Create([Bind("IdMedico,IdUsuario,Especialidad")] Medico medico)
         {
            
-                _context.Add(insGeneral);
+                _context.Add(medico);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             
-            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "idUsuario", "NombreCompleto", insGeneral.IdUsuario);
-            return View(insGeneral);
+            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "idUsuario", "NombreCompleto", medico.IdUsuario);
+            return View(medico);
         }
 
-        // GET: InsGenerals/Edit/5
+        // GET: Medicos/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.InsGeneral == null)
+            if (id == null || _context.Medico == null)
             {
                 return NotFound();
             }
 
-            var insGeneral = await _context.InsGeneral.FindAsync(id);
-            if (insGeneral == null)
+            var medico = await _context.Medico.FindAsync(id);
+            if (medico == null)
             {
                 return NotFound();
             }
-            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "idUsuario", "NombreCompleto", insGeneral.IdUsuario);
-            return View(insGeneral);
+            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "idUsuario", "NombreCompleto", medico.IdUsuario);
+            return View(medico);
         }
 
-        // POST: InsGenerals/Edit/5
+        // POST: Medicos/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdIgeneral,IdUsuario,ComentarioMc,Altura,PesoReal,PesoIdeal,Imc,Temperatura,FrecuenciaCardiaca,FrecuenciaRespiratoria,ComentarioIg,ComentarioD")] InsGeneral insGeneral)
+        public async Task<IActionResult> Edit(int id, [Bind("IdMedico,IdUsuario,Especialidad")] Medico medico)
         {
-            if (id != insGeneral.IdIgeneral)
+            if (id != medico.IdMedico)
             {
                 return NotFound();
             }
 
-           
+            
                 try
                 {
-                    _context.Update(insGeneral);
+                    _context.Update(medico);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!InsGeneralExists(insGeneral.IdIgeneral))
+                    if (!MedicoExists(medico.IdMedico))
                     {
                         return NotFound();
                     }
@@ -120,51 +120,51 @@ namespace bloodyvalentinee.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             
-            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "idUsuario", "NombreCompleto", insGeneral.IdUsuario);
-            return View(insGeneral);
+            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "idUsuario", "NombreCompleto", medico.IdUsuario);
+            return View(medico);
         }
 
-        // GET: InsGenerals/Delete/5
+        // GET: Medicos/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.InsGeneral == null)
+            if (id == null || _context.Medico == null)
             {
                 return NotFound();
             }
 
-            var insGeneral = await _context.InsGeneral
-                .Include(i => i.Usuario)
-                .FirstOrDefaultAsync(m => m.IdIgeneral == id);
-            if (insGeneral == null)
+            var medico = await _context.Medico
+                .Include(m => m.Usuario)
+                .FirstOrDefaultAsync(m => m.IdMedico == id);
+            if (medico == null)
             {
                 return NotFound();
             }
 
-            return View(insGeneral);
+            return View(medico);
         }
 
-        // POST: InsGenerals/Delete/5
+        // POST: Medicos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.InsGeneral == null)
+            if (_context.Medico == null)
             {
-                return Problem("Entity set 'AplicacionDBContext.InsGeneral'  is null.");
+                return Problem("Entity set 'AplicacionDBContext.Medico'  is null.");
             }
-            var insGeneral = await _context.InsGeneral.FindAsync(id);
-            if (insGeneral != null)
+            var medico = await _context.Medico.FindAsync(id);
+            if (medico != null)
             {
-                _context.InsGeneral.Remove(insGeneral);
+                _context.Medico.Remove(medico);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool InsGeneralExists(int id)
+        private bool MedicoExists(int id)
         {
-          return (_context.InsGeneral?.Any(e => e.IdIgeneral == id)).GetValueOrDefault();
+          return (_context.Medico?.Any(e => e.IdMedico == id)).GetValueOrDefault();
         }
     }
 }

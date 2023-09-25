@@ -1,0 +1,67 @@
+﻿@model bloodyvalentinee.Models.Data.Medico
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Agrega un medico</h1>
+
+<hr />
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-row align-items-center">
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">Crear medico</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="card-body">
+                        <div id="divNombreDimension_1" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color: #a3dff0;color: #FFFFFF;border-color:#FFFFFF">
+                            <b>Medico</b>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="IdUsuario" class="control-label">Usuario</label>
+                                    <select asp-for="IdUsuario" class="form-control" asp-items="ViewBag.IdUsuario" required></select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label asp-for="Especialidad" class="control-label">Especialidad</label>
+                                    <input asp-for="Especialidad" class="form-control" name="Especialidad" id="Especialidad" minlength="3" required />
+                                    <span asp-validation-for="Especialidad" class="text-danger"></span>
+
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <div class="d-inline">
+                            <input type="submit" value="Create" class="btn btn-primary" />
+                        </div>
+                        <div class="d-inline">
+                            <a asp-action="Index" class="btn btn-danger" role="button">Volver atrás</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+ 
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

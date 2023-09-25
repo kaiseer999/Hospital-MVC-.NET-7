@@ -7,10 +7,12 @@ namespace bloodyvalentinee.Models.Data
     {
         [Key]
         public int idUsuario {  get; set; }
+
         public int usuarioIdentificacion { get; set; }  
         public string Nombre { get; set; } = null!;
         public string Apellido { get; set; } = null!;
         public string NombreCompleto => $"{Nombre} {Apellido} {usuarioIdentificacion}";
+
 
         public DateTime FechaNac { get; set; }
 
@@ -36,6 +38,10 @@ namespace bloodyvalentinee.Models.Data
 
         public InsGeneral InsGeneral { get; set; }
         public EPS EPS { get; set; }
-        
+        public Medico Medico { get; set; }
+        public CitaMedica CitaMedica { get; set; }
+
+        public RecetaMedica recetaMedica { get; set; }
+
     }
 }

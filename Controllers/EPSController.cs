@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using bloodyvalentinee;
 using bloodyvalentinee.Models.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace bloodyvalentinee.Controllers
 {
+    [Authorize(Roles = "1")]
+
     public class EPSController : Controller
     {
         private readonly AplicacionDBContext _context;

@@ -9,74 +9,149 @@
 
 <h4>InsGeneral</h4>
 <hr />
-<div class="row">
-    <div class="col-md-4">
+
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="IdUsuario" class="control-label"></label>
-                <select asp-for="IdUsuario" class ="form-control" asp-items="ViewBag.IdUsuario"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="ComentarioMc" class="control-label"></label>
-                <textarea asp-for="ComentarioMc" class="form-control" rows="4"></textarea>
-                <span asp-validation-for="ComentarioMc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Altura" class="control-label"></label>
-                <input asp-for="Altura" class="form-control" />
-                <span asp-validation-for="Altura" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PesoReal" class="control-label"></label>
-                <input asp-for="PesoReal" class="form-control" />
-                <span asp-validation-for="PesoReal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PesoIdeal" class="control-label"></label>
-                <input asp-for="PesoIdeal" class="form-control" />
-                <span asp-validation-for="PesoIdeal" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Imc" class="control-label"></label>
-                <input asp-for="Imc" class="form-control" />
-                <span asp-validation-for="Imc" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Temperatura" class="control-label"></label>
-                <input asp-for="Temperatura" class="form-control" />
-                <span asp-validation-for="Temperatura" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FrecuenciaCardiaca" class="control-label"></label>
-                <input asp-for="FrecuenciaCardiaca" class="form-control" />
-                <span asp-validation-for="FrecuenciaCardiaca" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FrecuenciaRespiratoria" class="control-label"></label>
-                <input asp-for="FrecuenciaRespiratoria" class="form-control" />
-                <span asp-validation-for="FrecuenciaRespiratoria" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ComentarioIg" class="control-label"></label>
-                <input asp-for="ComentarioIg" class="form-control" />
-                <span asp-validation-for="ComentarioIg" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ComentarioD" class="control-label"></label>
-                <input asp-for="ComentarioD" class="form-control" />
-                <span asp-validation-for="ComentarioD" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+             <div class="form-row align-items-center">
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs pull-right" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab"  role="tab" aria-controls="home" aria-selected="true">Registrar informacion medica</a>
+                    </li>
+        
+                </ul>
+            </div>
+            <div class="card-body">
+                <div id="divNombreDimension_1" class="col-md-12 alert alert-warning" role="alert" style="text-align:center;background-color: #a3dff0;color: #FFFFFF;border-color:#FFFFFF">
+                    <b>Información medica</b>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+
+                              <label asp-for="IdUsuario" class="control-label">Usuario</label>
+                            <select asp-for="IdUsuario" class ="form-control" asp-items="ViewBag.IdUsuario" required></select>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="ComentarioMc" class="control-label">Motivo consulta</label>
+                            <textarea asp-for="ComentarioMc" class="form-control" rows="6"></textarea>
+                            <span asp-validation-for="ComentarioMc" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                             <label asp-for="Altura" class="control-label">Altura</label>
+                            <input asp-for="Altura" class="form-control" name="Altura" id="Altura" minlength="3" required/>
+                            <span asp-validation-for="Altura" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="PesoReal" class="control-label">Peso real</label>
+                            <input asp-for="PesoReal" class="form-control" name="PesoReal" id="PesoReal" minlength="3" required />
+                            <span asp-validation-for="PesoReal" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="PesoIdeal" class="control-label">Peso ideal</label>
+                            <input asp-for="PesoIdeal" class="form-control" name="PesoIdeal" id="PesoIdeal" minlength="3" required/>
+                            <span asp-validation-for="PesoIdeal" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Imc" class="control-label">Imc</label>
+                            <input asp-for="Imc" class="form-control" name="Imc" id="Imc" minlength="3" required />
+                            <span asp-validation-for="Imc" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="ComentarioIg" class="control-label">Inspeccion general</label>
+                            <textarea asp-for="ComentarioIg" class="form-control" rows="6"></textarea>
+                            <span asp-validation-for="ComentarioIg" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="Temperatura" class="control-label">Temperatura</label>
+                            <input asp-for="Temperatura" class="form-control" name="Temperatura" id="Temperatura" minlength="3" required  />
+                            <span asp-validation-for="Temperatura" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="FrecuenciaCardiaca" class="control-label">Frecuencia cardiaca</label>
+                            <input asp-for="FrecuenciaCardiaca" class="form-control" name="FrecuenciaCardiaca" id="FrecuenciaCardiaca" minlength="3" required/>
+                            <span asp-validation-for="FrecuenciaCardiaca" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label asp-for="FrecuenciaRespiratoria" class="control-label">Frecuencia respiratoria</label>
+                            <input asp-for="FrecuenciaRespiratoria" class="form-control" name="FrecuenciaRespiratoria" id="FrecuenciaRespiratoria" minlength="3" required/>
+                            <span asp-validation-for="FrecuenciaRespiratoria" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="ComentarioD" class="control-label">Diagnostico</label>
+                            <textarea asp-for="ComentarioD" class="form-control" rows="6"></textarea>
+                            <span asp-validation-for="ComentarioD" class="text-danger"></span>
+                        </div>
+                    </div>
+                   
+    
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <div class="d-inline">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+                <div class="d-inline">
+                    <a asp-action="Index" class="btn btn-danger" role="button">Volver atrás</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+        </form>
+  
+
+<script>
+    // Función para calcular el IMC en tiempo real
+    function calcularIMC() {
+        var altura = parseFloat($("#Altura").val());
+        var pesoReal = parseFloat($("#PesoReal").val());
+
+        if (!isNaN(altura) && !isNaN(pesoReal) && altura > 0 && pesoReal > 0) {
+            var imc = pesoReal / (altura * altura);
+            $("#Imc").val(imc.toFixed(2)); // Mostrar el IMC con dos decimales
+        } else {
+            $("#Imc").val(""); // Limpiar el campo IMC si los valores no son válidos
+        }
+    }
+
+    // Calcular el IMC en tiempo real cuando cambian los valores de altura o peso
+    $("#Altura, #PesoReal").on("input", calcularIMC);
+
+    // Calcular el IMC al cargar la página si ya hay valores preexistentes
+    $(document).ready(function () {
+        calcularIMC();
+    });
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

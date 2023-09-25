@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bloodyvalentinee;
 
@@ -11,9 +12,11 @@ using bloodyvalentinee;
 namespace bloodyvalentinee.Migrations
 {
     [DbContext(typeof(AplicacionDBContext))]
-    partial class AplicacionDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230925020209_Medico_Cita")]
+    partial class Medico_Cita
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -217,29 +220,6 @@ namespace bloodyvalentinee.Migrations
                     b.ToTable("Medico");
                 });
 
-            modelBuilder.Entity("bloodyvalentinee.Models.Data.RecetaMedica", b =>
-                {
-                    b.Property<int>("IdRecetaMedica")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRecetaMedica"));
-
-                    b.Property<int>("IdUsuario")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Receta")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("IdRecetaMedica");
-
-                    b.HasIndex("IdUsuario")
-                        .IsUnique();
-
-                    b.ToTable("RecetaMedica");
-                });
-
             modelBuilder.Entity("bloodyvalentinee.Models.Data.Rol", b =>
                 {
                     b.Property<int>("IdRol")
@@ -409,17 +389,6 @@ namespace bloodyvalentinee.Migrations
                     b.Navigation("Usuario");
                 });
 
-            modelBuilder.Entity("bloodyvalentinee.Models.Data.RecetaMedica", b =>
-                {
-                    b.HasOne("bloodyvalentinee.Models.Data.Usuario", "Usuario")
-                        .WithOne("recetaMedica")
-                        .HasForeignKey("bloodyvalentinee.Models.Data.RecetaMedica", "IdUsuario")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Usuario");
-                });
-
             modelBuilder.Entity("bloodyvalentinee.Models.Data.Usuario", b =>
                 {
                     b.HasOne("bloodyvalentinee.Models.Data.EPS", "EPS")
@@ -469,9 +438,6 @@ namespace bloodyvalentinee.Migrations
                         .IsRequired();
 
                     b.Navigation("Medico")
-                        .IsRequired();
-
-                    b.Navigation("recetaMedica")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

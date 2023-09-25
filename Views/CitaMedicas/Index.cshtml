@@ -1,0 +1,66 @@
+﻿@model IEnumerable<bloodyvalentinee.Models.Data.CitaMedica>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Citas</h1>
+
+<p>
+    <a asp-action="Create">Agendar nueva cita</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Medico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Consultorio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCita)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Motivo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Medico.IdMedico)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Usuario.NombreCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Consultorio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCita)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Motivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCitaMedica">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdCitaMedica">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCitaMedica">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
